@@ -1,12 +1,12 @@
+import 'package:core/core.dart';
 import 'package:movie/movie.dart';
 import 'package:tv/tv.dart';
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 
 final locator = GetIt.instance;
 
 void init() {
-locator.registerFactory(
+  locator.registerFactory(
     () => NowPlayingMovieBloc(
       locator(),
     ),
@@ -129,9 +129,10 @@ locator.registerFactory(
       () => TvLocalDataSourceImpl(databaseHelper: locator()));
 
   // helper
-  locator.registerLazySingleton<MovieDatabaseHelper>(() => MovieDatabaseHelper());
+  locator
+      .registerLazySingleton<MovieDatabaseHelper>(() => MovieDatabaseHelper());
   locator.registerLazySingleton<TvDatabaseHelper>(() => TvDatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => HttpSSLPinning.client);
 }

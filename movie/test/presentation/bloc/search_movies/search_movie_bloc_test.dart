@@ -48,7 +48,7 @@ void main() {
       when(mockSearchMovies.execute(tQuery)).thenAnswer((_) async => Right(tMovieList));
       return searchMovieBloc;
     },
-    act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    act: (bloc) => bloc.add(const OnQueryChanged(tQuery)),
     wait: const Duration(milliseconds: 500),
     expect: () => [
       SearchMoviesLoading(),
@@ -62,14 +62,14 @@ void main() {
   blocTest<SearchMoviesBloc, SearchMoviesState>(
     'Should emit [Loading, Error] when get search is unsuccessful',
     build: () {
-      when(mockSearchMovies.execute(tQuery)).thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+      when(mockSearchMovies.execute(tQuery)).thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return searchMovieBloc;
     },
-    act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    act: (bloc) => bloc.add(const OnQueryChanged(tQuery)),
     wait: const Duration(milliseconds: 500),
     expect: () => [
       SearchMoviesLoading(),
-      SearchMoviesError('Server Failure'),
+      const SearchMoviesError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockSearchMovies.execute(tQuery));

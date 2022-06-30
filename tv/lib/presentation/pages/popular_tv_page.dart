@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PopularTvShowsPage extends StatefulWidget {
+  // ignore: constant_identifier_names
   static const ROUTE_NAME = '/popular-tv';
 
+  const PopularTvShowsPage({Key? key}) : super(key: key);
+
   @override
+  // ignore: library_private_types_in_public_api
   _PopularTvShowsPageState createState() => _PopularTvShowsPageState();
 }
 

@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchPageTv extends StatelessWidget {
+  // ignore: constant_identifier_names
   static const ROUTE_NAME = '/search-page-tv';
+
+  const SearchPageTv({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

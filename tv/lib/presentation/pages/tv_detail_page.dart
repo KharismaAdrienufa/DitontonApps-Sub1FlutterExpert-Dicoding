@@ -6,12 +6,15 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TvDetailPage extends StatefulWidget {
+  // ignore: constant_identifier_names
   static const ROUTE_NAME = '/tv-detail';
 
   final int id;
-  TvDetailPage({required this.id});
+  // ignore: use_key_in_widget_constructors
+  const TvDetailPage({required this.id});
 
   @override
+  // ignore: library_private_types_in_public_api
   _TvDetailPageState createState() => _TvDetailPageState();
 }
 
@@ -60,6 +63,7 @@ class _TvDetailPageState extends State<TvDetailPage> {
 class DetailContent extends StatelessWidget {
   final TvDetail tv;
 
+  // ignore: use_key_in_widget_constructors
   const DetailContent(this.tv);
 
   @override
@@ -279,7 +283,7 @@ class DetailContent extends StatelessWidget {
   String _showGenres(List<Genre> genres) {
     String result = '';
     for (var genre in genres) {
-      result += genre.name + ', ';
+      result += '${genre.name}, ';
     }
 
     if (result.isEmpty) {

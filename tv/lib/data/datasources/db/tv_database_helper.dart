@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:tv/tv.dart';
+// ignore: depend_on_referenced_packages
 import 'package:sqflite/sqflite.dart';
 
 class TvDatabaseHelper {
@@ -14,9 +15,7 @@ class TvDatabaseHelper {
   static Database? _database;
 
   Future<Database?> get database async {
-    if (_database == null) {
-      _database = await _initDb();
-    }
+    _database ??= await _initDb();
     return _database;
   }
 

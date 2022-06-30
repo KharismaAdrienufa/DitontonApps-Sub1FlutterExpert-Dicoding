@@ -5,7 +5,8 @@ import 'package:equatable/equatable.dart';
 part 'tv_shows_on_the_air_event.dart';
 part 'tv_shows_on_the_air_state.dart';
 
-class TvShowsOnTheAirBloc extends Bloc<TvShowsOnTheAirEvent, TvShowsOnTheAirState> {
+class TvShowsOnTheAirBloc
+    extends Bloc<TvShowsOnTheAirEvent, TvShowsOnTheAirState> {
   final GetTvOnTheAir _getTvOnTheAir;
 
   TvShowsOnTheAirBloc(this._getTvOnTheAir) : super(TvShowsOnTheAirEmpty()) {

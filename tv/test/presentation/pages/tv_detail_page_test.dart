@@ -1,6 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv/tv.dart';
+// ignore: depend_on_referenced_packages
 import 'package:mocktail/mocktail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -77,11 +78,11 @@ void main() {
     when(() => mockTvRecommendationsBloc.state)
         .thenReturn(TvShowsRecommendationsHasData(testTvList));
     when(() => mockWatchlistTvShowsBloc.state)
-        .thenReturn(WatchlistTvShowsStatus(false));
+        .thenReturn(const WatchlistTvShowsStatus(false));
 
     final watchlistButtonIcon = find.byIcon(Icons.add);
 
-    await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+    await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
     expect(watchlistButtonIcon, findsOneWidget);
   });
@@ -93,11 +94,11 @@ void main() {
         .thenReturn(TvShowsDetailHasData(testTvDetail));
     when(() => mockTvRecommendationsBloc.state)
         .thenReturn(TvShowsRecommendationsHasData(testTvList));
-    when(() => mockWatchlistTvShowsBloc.state).thenReturn(WatchlistTvShowsStatus(true));
+    when(() => mockWatchlistTvShowsBloc.state).thenReturn(const WatchlistTvShowsStatus(true));
 
     final watchlistButtonIcon = find.byIcon(Icons.check);
 
-    await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+    await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
     expect(watchlistButtonIcon, findsOneWidget);
   });

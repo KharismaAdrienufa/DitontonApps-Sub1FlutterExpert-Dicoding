@@ -31,7 +31,7 @@ void main() {
       when(mockGetRecommendationMovies.execute(id)).thenAnswer((_) async => Right(testMovieList));
       return recommendationsMovieBloc;
     },
-    act: (bloc) => bloc.add(FetchRecommendationsMovies(id)),
+    act: (bloc) => bloc.add(const FetchRecommendationsMovies(id)),
     expect: () => [
       RecommendationsMovieLoading(),
       RecommendationsMovieHasData(testMovieList),
@@ -44,13 +44,13 @@ void main() {
   blocTest<RecommendationsMovieBloc, RecommendationsMovieState>(
     'Should emit [RecommendationsMovieLoading, RecommendationsMovieError] when get data is unsuccessful',
     build: () {
-      when(mockGetRecommendationMovies.execute(id)).thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+      when(mockGetRecommendationMovies.execute(id)).thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return recommendationsMovieBloc;
     },
-    act: (bloc) => bloc.add(FetchRecommendationsMovies(id)),
+    act: (bloc) => bloc.add(const FetchRecommendationsMovies(id)),
     expect: () => [
       RecommendationsMovieLoading(),
-      RecommendationsMovieError('Server Failure'),
+      const RecommendationsMovieError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetRecommendationMovies.execute(id));

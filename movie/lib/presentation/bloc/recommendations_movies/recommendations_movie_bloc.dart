@@ -5,10 +5,12 @@ import 'package:equatable/equatable.dart';
 part 'recommendations_movie_event.dart';
 part 'recommendations_movie_state.dart';
 
-class RecommendationsMovieBloc extends Bloc<RecommendationsMovieEvent, RecommendationsMovieState> {
+class RecommendationsMovieBloc
+    extends Bloc<RecommendationsMovieEvent, RecommendationsMovieState> {
   final GetMovieRecommendations _getMovieRecommendations;
 
-  RecommendationsMovieBloc(this._getMovieRecommendations) : super(RecommendationsMovieEmpty()) {
+  RecommendationsMovieBloc(this._getMovieRecommendations)
+      : super(RecommendationsMovieEmpty()) {
     on<FetchRecommendationsMovies>((event, emit) async {
       final id = event.id;
 

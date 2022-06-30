@@ -2,7 +2,7 @@ import 'package:tv/tv.dart';
 import 'package:equatable/equatable.dart';
 
 class TvModel extends Equatable {
-  TvModel({
+  const TvModel({
     required this.backdropPath,
     required this.genreIds,
     required this.id,

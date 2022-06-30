@@ -27,13 +27,13 @@ void main() {
   blocTest<DetailMovieBloc, DetailMovieState>(
     'Should emit [DetailMovieLoading, DetailMovieHasData] when data is gotten successfully',
     build: () {
-      when(mockGetMovieDetail.execute(id)).thenAnswer((_) async => Right(testMovieDetail));
+      when(mockGetMovieDetail.execute(id)).thenAnswer((_) async => const Right(testMovieDetail));
       return detailMovieBloc;
     },
-    act: (bloc) => bloc.add(FetchDetailMovie(id)),
+    act: (bloc) => bloc.add(const FetchDetailMovie(id)),
     expect: () => [
       DetailMovieLoading(),
-      DetailMovieHasData(testMovieDetail),
+      const DetailMovieHasData(testMovieDetail),
     ],
     verify: (bloc) {
       verify(mockGetMovieDetail.execute(id));
@@ -43,13 +43,13 @@ void main() {
   blocTest<DetailMovieBloc, DetailMovieState>(
     'Should emit [DetailMovieLoading, DetailMovieError] when get data is unsuccessful',
     build: () {
-      when(mockGetMovieDetail.execute(id)).thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+      when(mockGetMovieDetail.execute(id)).thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return detailMovieBloc;
     },
-    act: (bloc) => bloc.add(FetchDetailMovie(id)),
+    act: (bloc) => bloc.add(const FetchDetailMovie(id)),
     expect: () => [
       DetailMovieLoading(),
-      DetailMovieError('Server Failure'),
+      const DetailMovieError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetMovieDetail.execute(id));

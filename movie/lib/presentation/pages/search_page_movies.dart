@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchPageMovies extends StatelessWidget {
+  // ignore: constant_identifier_names
   static const ROUTE_NAME = '/search';
+
+  const SearchPageMovies({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +23,8 @@ class SearchPageMovies extends StatelessWidget {
             TextField(
               onSubmitted: (query) {
                 context.read<SearchMoviesBloc>().add(
-                  OnQueryChanged(query),
-                );
+                      OnQueryChanged(query),
+                    );
               },
               decoration: const InputDecoration(
                 hintText: 'Search title',

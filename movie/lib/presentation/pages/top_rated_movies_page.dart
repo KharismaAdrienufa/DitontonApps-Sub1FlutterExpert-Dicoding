@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TopRatedMoviesPage extends StatefulWidget {
+  // ignore: constant_identifier_names
   static const ROUTE_NAME = '/top-rated-movie';
 
+  const TopRatedMoviesPage({Key? key}) : super(key: key);
+
   @override
+  // ignore: library_private_types_in_public_api
   _TopRatedMoviesPageState createState() => _TopRatedMoviesPageState();
 }
 
@@ -41,7 +45,7 @@ class _TopRatedMoviesPageState extends State<TopRatedMoviesPage> {
               );
             } else if (state is TopRatedMovieError) {
               return Center(
-                key: Key('error_message'),
+                key: const Key('error_message'),
                 child: Text(state.message),
               );
             } else {

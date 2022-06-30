@@ -3,7 +3,7 @@ import 'package:core/core.dart';
 import 'package:equatable/equatable.dart';
 
 class TvDetailResponse extends Equatable {
-  TvDetailResponse({
+  const TvDetailResponse({
     required this.backdropPath,
     required this.episodeRunTime,
     required this.genres,

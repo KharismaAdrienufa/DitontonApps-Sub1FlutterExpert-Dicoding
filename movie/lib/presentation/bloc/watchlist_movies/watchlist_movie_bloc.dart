@@ -5,13 +5,15 @@ import 'package:equatable/equatable.dart';
 part 'watchlist_movie_event.dart';
 part 'watchlist_movie_state.dart';
 
-class WatchlistMovieBloc extends Bloc<WatchlistMovieEvent, WatchlistMovieState> {
+class WatchlistMovieBloc
+    extends Bloc<WatchlistMovieEvent, WatchlistMovieState> {
   final GetWatchlistMovies _getWatchlistMovies;
   final SaveWatchlist _saveWatchlist;
   final RemoveWatchlist _removeWatchlist;
   final GetWatchListStatus _getWatchListStatus;
 
-  WatchlistMovieBloc(this._getWatchlistMovies, this._saveWatchlist, this._removeWatchlist, this._getWatchListStatus)
+  WatchlistMovieBloc(this._getWatchlistMovies, this._saveWatchlist,
+      this._removeWatchlist, this._getWatchListStatus)
       : super(WatchlistMovieEmpty()) {
     on<FetchWatchlistMovies>((event, emit) async {
       emit(WatchlistMovieLoading());
@@ -37,7 +39,7 @@ class WatchlistMovieBloc extends Bloc<WatchlistMovieEvent, WatchlistMovieState> 
             emit(WatchlistMessageFailure(failure.message));
           },
           (successMessage) {
-            emit(WatchlistMessageSuccess('Added From Watchlist'));
+            emit(const WatchlistMessageSuccess('Added From Watchlist'));
           },
         );
         add(LoadWatchlistStatus(movieDetail.id));
@@ -54,7 +56,7 @@ class WatchlistMovieBloc extends Bloc<WatchlistMovieEvent, WatchlistMovieState> 
             emit(WatchlistMessageFailure(failure.message));
           },
           (successMessage) {
-            emit(WatchlistMessageSuccess('Removed From Watchlist'));
+            emit(const WatchlistMessageSuccess('Removed From Watchlist'));
           },
         );
         add(LoadWatchlistStatus(movieDetail.id));

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:core/core.dart';
 import 'package:movie/movie.dart';
+// ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
 
 abstract class MovieRemoteDataSource {
@@ -35,8 +36,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
 
   @override
   Future<MovieDetailResponse> getMovieDetail(int id) async {
-    final response =
-        await client.get(Uri.parse('$baseUrl/movie/$id?$apiKey'));
+    final response = await client.get(Uri.parse('$baseUrl/movie/$id?$apiKey'));
 
     if (response.statusCode == 200) {
       return MovieDetailResponse.fromJson(json.decode(response.body));

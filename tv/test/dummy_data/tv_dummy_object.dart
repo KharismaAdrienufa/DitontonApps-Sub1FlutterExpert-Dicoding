@@ -20,7 +20,7 @@ final testTvList = [testTv];
 final testTvDetail = TvDetail(
   backdropPath: "backdropPath",
   episodeRunTime: const [1],
-  genres: [Genre(id: 0, name: "Sci-Fi & Fantasy")],
+  genres: const [Genre(id: 0, name: "Sci-Fi & Fantasy")],
   homepage: "homepage",
   id: 1,
   inProduction: true,

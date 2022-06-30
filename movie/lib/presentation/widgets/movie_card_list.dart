@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 class MovieCard extends StatelessWidget {
   final Movie movie;
 
-  MovieCard(this.movie);
+  // ignore: use_key_in_widget_constructors
+  const MovieCard(this.movie);
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +56,7 @@ class MovieCard extends StatelessWidget {
                 bottom: 16,
               ),
               child: ClipRRect(
+                // ignore: sort_child_properties_last
                 child: CachedNetworkImage(
                   imageUrl: '$baseImageUrl${movie.posterPath}',
                   width: 80,

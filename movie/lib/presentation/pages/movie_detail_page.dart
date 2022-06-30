@@ -6,12 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class MovieDetailPage extends StatefulWidget {
+  // ignore: constant_identifier_names
   static const ROUTE_NAME = '/detail';
 
   final int id;
-  MovieDetailPage({required this.id});
+  // ignore: use_key_in_widget_constructors
+  const MovieDetailPage({required this.id});
 
   @override
+  // ignore: library_private_types_in_public_api
   _MovieDetailPageState createState() => _MovieDetailPageState();
 }
 
@@ -45,7 +48,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
           } else if (state is DetailMovieError) {
             return Center(child: Text(state.message));
           } else {
-            return Center(
+            return const Center(
               child: Text('Failed'),
             );
           }
@@ -134,9 +137,9 @@ class DetailContent extends StatelessWidget {
                                     children: [
                                       if (state is WatchlistStatus)
                                         if (!state.isAddedToWatchlist)
-                                          Icon(Icons.add)
+                                          const Icon(Icons.add)
                                         else if (state.isAddedToWatchlist)
-                                          Icon(Icons.check),
+                                          const Icon(Icons.check),
                                       const Text('Watchlist'),
                                     ],
                                   ),
@@ -176,15 +179,18 @@ class DetailContent extends StatelessWidget {
                               'Recommendations',
                               style: kHeading6,
                             ),
-                            BlocBuilder<RecommendationsMovieBloc, RecommendationsMovieState>(
+                            BlocBuilder<RecommendationsMovieBloc,
+                                RecommendationsMovieState>(
                               builder: (context, state) {
                                 if (state is RecommendationsMovieLoading) {
                                   return const Center(
-                                    child: const CircularProgressIndicator(),
+                                    child: CircularProgressIndicator(),
                                   );
                                 } else if (state is RecommendationsMovieError) {
                                   return Text(state.message);
-                                } else if (state is RecommendationsMovieHasData) {
+                                } else if (state
+                                    is RecommendationsMovieHasData) {
+                                  // ignore: sized_box_for_whitespace
                                   return Container(
                                     height: 150,
                                     child: ListView.builder(
@@ -271,7 +277,7 @@ class DetailContent extends StatelessWidget {
   String _showGenres(List<Genre> genres) {
     String result = '';
     for (var genre in genres) {
-      result += genre.name + ', ';
+      result += '${genre.name}, ';
     }
 
     if (result.isEmpty) {

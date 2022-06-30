@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WatchlistTvPage extends StatefulWidget {
+  // ignore: constant_identifier_names
   static const ROUTE_NAME = '/watchlist-tv';
 
+  const WatchlistTvPage({Key? key}) : super(key: key);
+
   @override
+  // ignore: library_private_types_in_public_api
   _WatchlistTvPageState createState() => _WatchlistTvPageState();
 }
 
@@ -25,6 +29,7 @@ class _WatchlistTvPageState extends State<WatchlistTvPage> with RouteAware {
     routeObserver.subscribe(this, ModalRoute.of(context)!);
   }
 
+  // ignore: annotate_overrides
   void didPopNext() {
     context.read<WatchlistTvShowsBloc>().add(FetchWatchlistTvShows());
   }

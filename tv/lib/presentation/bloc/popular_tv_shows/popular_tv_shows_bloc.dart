@@ -5,7 +5,8 @@ import 'package:equatable/equatable.dart';
 part 'popular_tv_shows_event.dart';
 part 'popular_tv_shows_state.dart';
 
-class PopularTvShowsBloc extends Bloc<PopularTvShowsEvent, PopularTvShowsState> {
+class PopularTvShowsBloc
+    extends Bloc<PopularTvShowsEvent, PopularTvShowsState> {
   final GetPopularTvShows _getPopularTvShows;
 
   PopularTvShowsBloc(this._getPopularTvShows) : super(PopularTvShowsEmpty()) {

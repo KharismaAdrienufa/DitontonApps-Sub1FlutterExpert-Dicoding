@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeMoviePage extends StatefulWidget {
+  const HomeMoviePage({Key? key}) : super(key: key);
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomeMoviePageState createState() => _HomeMoviePageState();
 }
 
@@ -48,7 +51,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HomeTvPage(),
+                      builder: (context) => const HomeTvPage(),
                     ));
               },
             ),
@@ -181,10 +184,12 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
 class MovieList extends StatelessWidget {
   final List<Movie> movies;
 
-  MovieList(this.movies);
+  // ignore: use_key_in_widget_constructors
+  const MovieList(this.movies);
 
   @override
   Widget build(BuildContext context) {
+    // ignore: sized_box_for_whitespace
     return Container(
       height: 200,
       child: ListView.builder(

@@ -53,13 +53,13 @@ void main() {
   blocTest<WatchlistMovieBloc, WatchlistMovieState>(
     'Should emit [WatchlistMovieLoading, WatchlistMovieError] when get data is unsuccessful',
     build: () {
-      when(mockGetWatchlistMovies.execute()).thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+      when(mockGetWatchlistMovies.execute()).thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return watchlistMovieBloc;
     },
     act: (bloc) => bloc.add(FetchWatchlistMovies()),
     expect: () => [
       WatchlistMovieLoading(),
-      WatchlistMovieError('Server Failure'),
+      const WatchlistMovieError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetWatchlistMovies.execute());

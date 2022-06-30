@@ -42,13 +42,13 @@ void main() {
   blocTest<PopularTvShowsBloc, PopularTvShowsState>(
     'Should emit [PopularTvShowsLoading, PopularTvShowsError] when get data is unsuccessful',
     build: () {
-      when(mockGetPopularTvShows.execute()).thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+      when(mockGetPopularTvShows.execute()).thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return popularTvShowsBloc;
     },
     act: (bloc) => bloc.add(FetchPopularTvShows()),
     expect: () => [
       PopularTvShowsLoading(),
-      PopularTvShowsError('Server Failure'),
+      const PopularTvShowsError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetPopularTvShows.execute());

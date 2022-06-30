@@ -60,13 +60,13 @@ void main() {
     'Should emit [WatchlistTvShowsLoading, WatchlistTvShowsError] when get data is unsuccessful',
     build: () {
       when(mockGetWatchlistTvShows.execute())
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return watchlistTvShowsBloc;
     },
     act: (bloc) => bloc.add(FetchWatchlistTvShows()),
     expect: () => [
       WatchlistTvShowsLoading(),
-      WatchlistTvShowsError('Server Failure'),
+      const WatchlistTvShowsError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetWatchlistTvShows.execute());

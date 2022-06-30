@@ -64,26 +64,26 @@ void main() {
 
   testWidgets('Watchlist button should display add icon when Movie not added to watchlist',
       (WidgetTester tester) async {
-    when(() => mockDetailMovieBloc.state).thenReturn(DetailMovieHasData(testMovieDetail));
+    when(() => mockDetailMovieBloc.state).thenReturn(const DetailMovieHasData(testMovieDetail));
     when(() => mockRecommendationMoviesBloc.state).thenReturn(RecommendationsMovieHasData(testMovieList));
-    when(() => mockWatchlistMoviesBloc.state).thenReturn(WatchlistStatus(false));
+    when(() => mockWatchlistMoviesBloc.state).thenReturn(const WatchlistStatus(false));
 
     final watchlistButtonIcon = find.byIcon(Icons.add);
 
-    await tester.pumpWidget(_makeTestableWidget(MovieDetailPage(id: 1)));
+    await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
     expect(watchlistButtonIcon, findsOneWidget);
   });
 
   testWidgets('Watchlist button should dispay check icon when Movie is added to watchlist',
       (WidgetTester tester) async {
-    when(() => mockDetailMovieBloc.state).thenReturn(DetailMovieHasData(testMovieDetail));
+    when(() => mockDetailMovieBloc.state).thenReturn(const DetailMovieHasData(testMovieDetail));
     when(() => mockRecommendationMoviesBloc.state).thenReturn(RecommendationsMovieHasData(testMovieList));
-    when(() => mockWatchlistMoviesBloc.state).thenReturn(WatchlistStatus(true));
+    when(() => mockWatchlistMoviesBloc.state).thenReturn(const WatchlistStatus(true));
 
     final watchlistButtonIcon = find.byIcon(Icons.check);
 
-    await tester.pumpWidget(_makeTestableWidget(MovieDetailPage(id: 1)));
+    await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
     expect(watchlistButtonIcon, findsOneWidget);
   });

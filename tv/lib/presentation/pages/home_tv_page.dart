@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
 import 'package:movie/movie.dart';
@@ -6,12 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeTvPage extends StatefulWidget {
+  const HomeTvPage({Key? key}) : super(key: key);
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomeTvPageState createState() => _HomeTvPageState();
 }
 
 class _HomeTvPageState extends State<HomeTvPage> {
-  static const ROUTE_NAME = '/hometv';
   @override
   void initState() {
     super.initState();
@@ -42,7 +46,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomeMoviePage(),
+                    builder: (context) => const HomeMoviePage(),
                   ),
                 );
               },
@@ -145,7 +149,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
                 builder: (context, state) {
                   if (state is TopRatedTvShowsLoading) {
                     return const Center(
-                      child: const CircularProgressIndicator(),
+                      child: CircularProgressIndicator(),
                     );
                   } else if (state is TopRatedTvShowsHasData) {
                     return TvList(state.result);
@@ -177,9 +181,9 @@ class _HomeTvPageState extends State<HomeTvPage> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
-              children: [
-                const Text('See More'),
-                const Icon(Icons.arrow_forward_ios)
+              children: const [
+                Text('See More'),
+                Icon(Icons.arrow_forward_ios)
               ],
             ),
           ),
@@ -192,10 +196,12 @@ class _HomeTvPageState extends State<HomeTvPage> {
 class TvList extends StatelessWidget {
   final List<Tv> tvShows;
 
-  TvList(this.tvShows);
+  // ignore: use_key_in_widget_constructors
+  const TvList(this.tvShows);
 
   @override
   Widget build(BuildContext context) {
+    // ignore: sized_box_for_whitespace
     return Container(
       height: 200,
       child: ListView.builder(

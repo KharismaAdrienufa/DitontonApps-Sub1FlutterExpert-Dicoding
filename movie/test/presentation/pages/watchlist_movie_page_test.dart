@@ -43,7 +43,7 @@ void main() {
     final progressBarFinder = find.byType(CircularProgressIndicator);
     final centerFinder = find.byType(Center);
 
-    await tester.pumpWidget(_makeTestableWidget(WatchlistMoviesPage()));
+    await tester.pumpWidget(_makeTestableWidget(const WatchlistMoviesPage()));
 
     expect(centerFinder, findsOneWidget);
     expect(progressBarFinder, findsOneWidget);
@@ -54,17 +54,17 @@ void main() {
 
     final listViewFinder = find.byType(ListView);
 
-    await tester.pumpWidget(_makeTestableWidget(WatchlistMoviesPage()));
+    await tester.pumpWidget(_makeTestableWidget(const WatchlistMoviesPage()));
 
     expect(listViewFinder, findsOneWidget);
   });
 
   testWidgets('Page should display text with message when Error', (WidgetTester tester) async {
-    when(() => mockWatchlistMoviesBloc.state).thenReturn(WatchlistMovieError('error_message'));
+    when(() => mockWatchlistMoviesBloc.state).thenReturn(const WatchlistMovieError('error_message'));
 
-    final textFinder = find.byKey(Key('error_message'));
+    final textFinder = find.byKey(const Key('error_message'));
 
-    await tester.pumpWidget(_makeTestableWidget(WatchlistMoviesPage()));
+    await tester.pumpWidget(_makeTestableWidget(const WatchlistMoviesPage()));
 
     expect(textFinder, findsOneWidget);
   });

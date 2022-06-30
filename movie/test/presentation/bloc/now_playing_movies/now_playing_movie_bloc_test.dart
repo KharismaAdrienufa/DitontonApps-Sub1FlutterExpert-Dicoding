@@ -42,13 +42,13 @@ void main() {
   blocTest<NowPlayingMovieBloc, NowPlayingMovieState>(
     'Should emit [NowPlayingMovieLoading, NowPlayingMovieError] when get data is unsuccessful',
     build: () {
-      when(mockGetNowPlayingMovies.execute()).thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+      when(mockGetNowPlayingMovies.execute()).thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return nowPlayingMovieBloc;
     },
     act: (bloc) => bloc.add(FetchNowPlayingMovies()),
     expect: () => [
       NowPlayingMovieLoading(),
-      NowPlayingMovieError('Server Failure'),
+      const NowPlayingMovieError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetNowPlayingMovies.execute());

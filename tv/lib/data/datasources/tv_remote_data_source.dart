@@ -1,6 +1,9 @@
+// ignore_for_file: constant_identifier_names
+
 import 'dart:convert';
 import 'package:core/core.dart';
 import 'package:tv/tv.dart';
+// ignore: depend_on_referenced_packages
 import 'package:http/http.dart' as http;
 
 abstract class TvRemoteDataSource {

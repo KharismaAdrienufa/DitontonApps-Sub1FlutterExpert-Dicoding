@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class TvCard extends StatelessWidget {
   final Tv tv;
 
+  // ignore: use_key_in_widget_constructors
   const TvCard(this.tv);
 
   @override
@@ -55,6 +56,7 @@ class TvCard extends StatelessWidget {
                 bottom: 16,
               ),
               child: ClipRRect(
+                // ignore: sort_child_properties_last
                 child: CachedNetworkImage(
                   imageUrl: '$baseImageUrl${tv.posterPath}',
                   width: 80,

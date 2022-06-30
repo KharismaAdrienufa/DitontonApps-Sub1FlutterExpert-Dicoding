@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
+// ignore: depend_on_referenced_packages
 import 'package:mocktail/mocktail.dart';
 import 'package:tv/tv.dart';
 
@@ -43,7 +44,7 @@ void main() {
     final progressBarFinder = find.byType(CircularProgressIndicator);
     final centerFinder = find.byType(Center);
 
-    await tester.pumpWidget(_makeTestableWidget(PopularTvShowsPage()));
+    await tester.pumpWidget(_makeTestableWidget(const PopularTvShowsPage()));
 
     expect(centerFinder, findsOneWidget);
     expect(progressBarFinder, findsOneWidget);
@@ -54,17 +55,17 @@ void main() {
 
     final listViewFinder = find.byType(ListView);
 
-    await tester.pumpWidget(_makeTestableWidget(PopularTvShowsPage()));
+    await tester.pumpWidget(_makeTestableWidget(const PopularTvShowsPage()));
 
     expect(listViewFinder, findsOneWidget);
   });
 
   testWidgets('Page should display text with message when Error', (WidgetTester tester) async {
-    when(() => mockPopularTvShowsBloc.state).thenReturn(PopularTvShowsError('error_message'));
+    when(() => mockPopularTvShowsBloc.state).thenReturn(const PopularTvShowsError('error_message'));
 
-    final textFinder = find.byKey(Key('error_message'));
+    final textFinder = find.byKey(const Key('error_message'));
 
-    await tester.pumpWidget(_makeTestableWidget(PopularTvShowsPage()));
+    await tester.pumpWidget(_makeTestableWidget(const PopularTvShowsPage()));
 
     expect(textFinder, findsOneWidget);
   });

@@ -42,13 +42,13 @@ void main() {
   blocTest<TvShowsOnTheAirBloc, TvShowsOnTheAirState>(
     'Should emit [OnTheAirTvsLoading, OnTheAirTvsError] when get data is unsuccessful',
     build: () {
-      when(mockGetTvOnTheAir.execute()).thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+      when(mockGetTvOnTheAir.execute()).thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return tvShowsOnTheAirBloc;
     },
     act: (bloc) => bloc.add(FetchTvShowsOnTheAir()),
     expect: () => [
       TvShowsOnTheAirLoading(),
-      TvShowsOnTheAirError('Server Failure'),
+      const TvShowsOnTheAirError('Server Failure'),
     ],
     verify: (bloc) {
       verify(mockGetTvOnTheAir.execute());

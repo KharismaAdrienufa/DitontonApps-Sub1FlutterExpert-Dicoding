@@ -5,13 +5,15 @@ import 'package:equatable/equatable.dart';
 part 'watchlist_tv_shows_event.dart';
 part 'watchlist_tv_shows_state.dart';
 
-class WatchlistTvShowsBloc extends Bloc<WatchlistTvShowsEvent, WatchlistTvShowsState> {
+class WatchlistTvShowsBloc
+    extends Bloc<WatchlistTvShowsEvent, WatchlistTvShowsState> {
   final GetWatchlistTvShows _getWatchlistTv;
   final SaveTvWatchlist _saveWatchlistTv;
   final RemoveTvWatchlist _removeWatchlistTv;
   final GetWatchlistTvStatus _getWatchListStatusTv;
 
-  WatchlistTvShowsBloc(this._getWatchlistTv, this._saveWatchlistTv, this._removeWatchlistTv, this._getWatchListStatusTv)
+  WatchlistTvShowsBloc(this._getWatchlistTv, this._saveWatchlistTv,
+      this._removeWatchlistTv, this._getWatchListStatusTv)
       : super(WatchlistTvShowsEmpty()) {
     on<FetchWatchlistTvShows>((event, emit) async {
       emit(WatchlistTvShowsLoading());

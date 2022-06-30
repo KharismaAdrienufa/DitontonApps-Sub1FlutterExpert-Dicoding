@@ -37,8 +37,9 @@ dependencies:
   sqflite: ^2.0.0+3
   flutter_bloc: ^8.0.1
   test_cov_console: ^0.2.2
+  firebase_core: ^1.6.0
+  firebase_crashlytics: ^2.7.2
 
-  #about
   about:
     path: about
   core:
@@ -69,6 +70,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - certificates/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
