@@ -21,7 +21,7 @@ class SearchPageTv extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
-              onSubmitted: (query) {
+              onChanged: (query) {
                 context.read<TvShowsSearchBloc>().add(OnQueryChanged(query));
               },
               decoration: const InputDecoration(

@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:about/about.dart';
+import 'package:ditonton/bottom_nav.dart';
 import 'package:movie/movie.dart';
 import 'package:tv/tv.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -73,7 +74,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: kRichBlack,
           textTheme: kTextTheme,
         ),
-        home: HomeMoviePage(),
+        home: BottomNav(),
         navigatorObservers: [routeObserver],
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
